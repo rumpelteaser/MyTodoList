@@ -1,0 +1,97 @@
+/* Define styles for HTML tags */
+
+h1 {
+    margin: 0;
+    padding-bottom: 10px;
+    font-size: 50px;
+    font-family: 'Sacramento', cursive;
+}
+
+h2 {
+    margin: 0;
+    padding-top: 10px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif
+}
+
+td {
+    margin: 0;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 15px;
+}
+
+/* Define style for filter bar */
+.filters {
+    margin: 0;
+    padding: 20px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif
+}
+
+/* Define styles for task list classes */
+
+.task-img {
+    margin: 0;
+    float: left;
+}
+
+.task_item{
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+/* Define appearance of button classes */
+
+.btn {
+    background: #11cdd4;
+    background-image: -webkit-linear-gradient(top, #11cdd4, #11999e);
+    background-image: -moz-linear-gradient(top, #11cdd4, #11999e);
+    background-image: -ms-linear-gradient(top, #11cdd4, #11999e);
+    background-image: -o-linear-gradient(top, #11cdd4, #11999e);
+    background-image: linear-gradient(to bottom, #11cdd4, #11999e);
+    -webkit-border-radius: 8;
+    -moz-border-radius: 8;
+    border-radius: 8px;
+    font-family: Arial;
+    color: black;
+    font-size: 10px;
+    padding: 5px 10px 5px 10px;
+    text-decoration: none;
+}
+.btn:hover {
+    background: #20e3cb;
+    background-image: -webkit-linear-gradient(top, #20e3cb, #2bc4ad);
+    background-image: -moz-linear-gradient(top, #20e3cb, #2bc4ad);
+    background-image: -ms-linear-gradient(top, #20e3cb, #2bc4ad);
+    background-image: -o-linear-gradient(top, #20e3cb, #2bc4ad);
+    background-image: linear-gradient(to bottom, #20e3cb, #2bc4ad);
+    text-decoration: none;
+}
+
+/* Define appearance of the fixed header */
+.header {
+    padding: 20px;
+    background: #caf7e3;
+    text-align: center;
+    width: 100%;
+}
+
+.content {
+    background:#e4f9f5;
+}
+
+/* The sticky class is added to the header with JS when it reaches its scroll position */
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+/* Define appearance of data entry forms */
+.data-entry-form {
+    background: #caf7e3;
+    padding-left: 300px;
+    padding-right: 300px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}

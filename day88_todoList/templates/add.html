@@ -1,0 +1,18 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block styles %}
+  {{ super() }}
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,700">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+{% endblock %}
+
+{% block title %}Add Task{% endblock %}
+
+{% block content %}
+<div class="data-entry-form">
+    <h1 style="text-align:center">Add a Task</h1>
+    {{ wtf.quick_form(form) }}
+</div>
+{% endblock %}

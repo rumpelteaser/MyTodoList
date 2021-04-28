@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>To-Do List</title>
+        <link rel="stylesheet" href="static/css/styles.css" />
+    </head>
+
+    <body>
+
+    <!-- Page Header (fixed on top by means of a JS function) -->
+    <div class="header" id="myHeader">
+        <!-- Page Title -->
+        <h1>My Todo List</h1>
+        <!-- Add Task button (presents a form to insert a new task in the Task DB) -->
+        <a class="btn" href="{{ url_for('add_task') }}"><b>Add New Task</b></a>
+        &nbsp;&nbsp;&nbsp;
+        <!-- Sort Up button (sort the task according to need date, more recent dates up) -->
+        <a class="btn" href="{{ url_for('sort_list', order='up') }}"><b>&nbsp;&nbsp;&nbsp;Sort Up&nbsp;&nbsp;&nbsp;</b></a>
+        &nbsp;&nbsp;&nbsp;
+        <!-- Sort Down button (sort the task according to need date, more recent dates down) -->
+        <a class="btn" href="{{ url_for('sort_list', order='down') }}"><b>Sort Down</b></a>
+        &nbsp;&nbsp;&nbsp;
+        <!-- Save List button (save the task list in .csv file on Desktop) -->
+        <a class="btn" href="{{ url_for('save_db') }}"><b>&nbsp;Save List&nbsp;</b></a>
+        &nbsp;&nbsp;&nbsp;
+        <!-- Link to JS function for fixing the header section on top -->
+        <script src="static/js/myScript.js"></script>
+
+    </div>
+
+    <!-- Main Content (scrollable sequence of task, presented in alternate colors) -->
+    <div class="content">
+    {% if tasks == []: %}
+        <h2>No task scheduled.</h2>
+    {% else: %}
+        <Table>
+            <head>
+            </head>
+            <body>
+            {% for task in tasks %}
+                    {% if task.priority == False: %}
+                    <tr style="background:#caf7e3">
+                    {% else: %}
+                    <tr style="background:yellow">
+                    {% endif %}
+                        <td>
+                        {% if task.done == True: %}
+                        <img class="task-img"
+                            src="static/images/done.png"
+                            alt=""
+                            width="40" height="35">
+                        {% else: %}
+                        <img class="task-img"
+                            src="static/images/todo.jpg"
+                            alt=""
+                            width="40" height="35">
+                        {% endif %}
+                        </td>
+                        <td style='width: 900px'>
+                            &nbsp;&nbsp;&nbsp;
+                            {{ task.action }}
+                            &nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td style='width: 120px'>
+                            &nbsp;&nbsp;&nbsp;
+                            {{ task.date }}
+                            &nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td style='width: 80px'>
+                        {% if task.done == False: %}
+                            &nbsp;&nbsp;&nbsp;
+                            <a class="btn" href="{{ url_for('task_done', task_id=task.id) }}">
+                                <b>Done</b>
+                            </a>
+                            &nbsp;&nbsp;&nbsp;
+                        {% endif %}
+                        </td>
+                        <td style='width: 100px'>
+                            &nbsp;&nbsp;&nbsp;
+                            <a class="btn" href="{{ url_for('delete_task', task_id=task.id) }}">
+                                <b>Remove</b>
+                            </a>
+                            &nbsp;&nbsp;&nbsp;
+                        </td>
+                    </tr>
+            </body>
+            {% endfor %}
+        </Table>
+    {% endif %}
+    </div>
+
+
+    </body>
+
+</html>
